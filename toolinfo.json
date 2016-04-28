@@ -2,10 +2,10 @@
     {
       "name" : "relgen",
       "title" : "Wikimedia OTRS release generator",
-      "description" : "Generate text for OTRS releases",
-      "url" : "https://tools.wmflabs.org/relgen/",
-      "keywords" : "otrs, generator, commons",
-      "author" : "Stöger Florian D. M.",
+      "description" : "Generates release eMails to be sent to OTRS.",
+      "url" : "https://tools.wmflabs.org/relgen",
+      "keywords" : "otrs, copyright, commons",
+      "author" : "FDMS",
       "repository" : "https://github.com/Toollabs/relgen"
     }
 ]
