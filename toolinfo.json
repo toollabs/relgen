@@ -1,0 +1,11 @@
+[
+    {
+      "name" : "relgen",
+      "title" : "Wikimedia OTRS release generator",
+      "description" : "Generate text for OTRS releases",
+      "url" : "https://tools.wmflabs.org/relgen/",
+      "keywords" : "otrs, generator, commons",
+      "author" : "Stöger Florian D. M.",
+      "repository" : "https://github.com/Toollabs/relgen"
+    }
+]
