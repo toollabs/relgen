@@ -1,9 +1,9 @@
 <?php
     if (isset($_GET['source'])) {show_source(__FILE__); exit();}
     /**
-     * @author Stöger Florian D. M. (//fdms.eu)
+     * @author Stöger Florian D. M. (http://fdms.eu)
      * @license EUPL 1.1 (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf)
-     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (//fdms.eu)
+     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu)
      */
 ?>
 <!DOCTYPE HTML>
@@ -26,22 +26,22 @@
     <script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function(){
-          $("a.smsc").on('click', function(event) {
+          $("a.smsc").on("click", function(event) {
               event.preventDefault();
               var hash = this.hash;
-              $('html, body').animate({
+              $("html, body").animate({
                   scrollTop: $(hash).offset().top
               }, 400);
           });
           $("#meta").popover({
               html:true,
           });
-          $("form").on('keyup keypress', function(e) {
+          $("form").on("keyup keypress", function(e) {
               if (e.keyCode == 13) {
                   e.preventDefault();
               }
           });
-          $(".nt").on('keydown', function(e) {
+          $(".nt").on("keydown", function(e) {
               if (e.keyCode == 9) {
                   e.preventDefault()
               }
@@ -52,21 +52,12 @@
   <body style="background: url('bg.png') no-repeat fixed right bottom; overflow:hidden;">
 
     <?php
-        if ($_POST['submit'] == "generate the release") {
-            ?>
-            <script type="text/javascript">
-            $(function() {
-                $('html, body').animate({
-                    scrollTop: $(result).offset().top
-                }, 400);
-            });
-            </script>
-            <?php
-        }
-        
+        date_default_timezone_set("UTC");
+        $starttime = date("H:i:s");
         $name = $rep = $auth = $file = $license = $s1 = $s2 = $s3 = $s4 = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $starttime = test_input($_POST["starttime"]);
             $name = test_input($_POST["name"]);
             $rep = test_input($_POST["rep"]);
             $auth = test_input($_POST["auth"]);
@@ -84,10 +75,29 @@
             $data = htmlspecialchars($data);
             return $data;
         }
+        
+        if ($_POST["submit"] == "generate the release") {
+            ?>
+            <script type="text/javascript">
+            $(function() {
+                $("html, body").animate({
+                    scrollTop: $(result).offset().top
+                }, 400);
+            });
+            </script>
+            <?php
+            $stats = fopen("stats/" . date('Y') . ".csv", "a");
+            fputcsv($stats, array ("", $starttime, date("H:i:s"), "", "1"), ";");
+            fclose($stats);
+        } else {
+            $stats = fopen("stats/" . date('Y') . ".csv", "a");
+            fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), "1", ""), ";");
+            fclose($stats);
+        }
     ?>
 
     <div class="container">
-      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='//fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">0.9.6</a></small></h1>
+      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">0.9.7</a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/index.php">
 
@@ -95,6 +105,7 @@
           <br /><br />
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">start</a>
+          <input type="hidden" name="starttime" value="<?=$starttime?>" />
           </div><br />
         </div>
 
@@ -246,12 +257,12 @@
             $b5 = "I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
             $b6 = "I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.";
             $tracking = "[generated using relgen v0.9.6]";
-            echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4<br />$b5<br />$b6<br /><br />$name$p1s_<br />" . date('Y-m-d', time()) . "<br /><br />$tracking</div>";
+            echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4<br />$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
           ?>
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?>%0A<?=$b5?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d', time())?>%0A%0A<?=$tracking?>" class="btn btn-default" style="width:100%;">create release eMail</a>
+          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?>%0A<?=$b5?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default" style="width:100%;">create release eMail</a>
         </div>
         <?php
             } else {
