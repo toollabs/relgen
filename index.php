@@ -54,7 +54,7 @@
     <?php
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
-        $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = $s4 = "";
+        $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $starttime = test_input($_POST["starttime"]);
@@ -66,7 +66,6 @@
             $s1 = test_input($_POST["s1"]);
             $s2 = test_input($_POST["s2"]);
             $s3 = test_input($_POST["s3"]);
-            $s4 = test_input($_POST["s4"]);
         }
         
         function test_input($data) {
@@ -76,7 +75,7 @@
             return $data;
         }
         
-        if ($_POST["submit"] == "generate the release") {
+        if ($_POST["submit"] == "view release text") {
             ?>
             <script type="text/javascript">
             $(function() {
@@ -86,13 +85,6 @@
             });
             </script>
             <?php
-            $stats = fopen("stats/" . date('Y') . ".csv", "a");
-            fputcsv($stats, array ("", $starttime, date("H:i:s"), "", "1"), ";");
-            fclose($stats);
-        } else {
-            $stats = fopen("stats/" . date('Y') . ".csv", "a");
-            fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), "1", ""), ";");
-            fclose($stats);
         }
     ?>
 
@@ -200,12 +192,12 @@
             <input type="text" name="license" value="Creative Commons Attribution-Share Alike 4.0 International" class="form-control" /><br />
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.<br />I am aware that this agreement is not limited to Wikipedia or related sites.<br />I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.<br />I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.</p>
             <br />
-            <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">confirm</button>
+            <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">I agree</button>
             <br /><br />
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iag">
-              <input type="submit" name="submit" value="generate the release" class="btn btn-success btn-block nt" />
+              <input type="submit" name="submit" value="view release text" class="btn btn-success btn-block nt" />
             </div>
           </div>
           <br />
@@ -217,6 +209,9 @@
         result [ <a href="#s1" class="smsc">start over</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+result" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
+          $stats = fopen("stats/" . date('Y') . ".csv", "a");
+          fputcsv($stats, array ("", $starttime, date("H:i:s")), ";");
+          fclose($stats);
         ?>
         <div class="col-md-7">
           <p>If you have an eMail client installed, just <b>click the button</b> to create the release eMail. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an eMail to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
@@ -243,7 +238,7 @@
             }
             if ($s2 == "1") {
                 $file = preg_replace("/(File:|(http|https):\/\/commons.wikimedia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
-                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $cfile) . "</a>";
+                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
                 $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
                 $subj = $file;
             } else {
@@ -257,7 +252,7 @@
             $b4 = "I am aware that this agreement is not limited to Wikipedia or related sites.";
             $b5 = "I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
             $b6 = "I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.";
-            $tracking = "[generated using relgen v0.9.6]";
+            $tracking = "[generated using relgen]";
             echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4<br />$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
           ?>
           <br /><br />
