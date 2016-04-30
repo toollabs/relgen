@@ -242,9 +242,10 @@
                     break;
             }
             if ($s2 == "1") {
-                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
-                $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
-                $subj = $file;
+                $cfile = preg_replace('/(File:|(http|https):\/\/commons.wikimedia.org\/(wiki\/|w\/index\.php\?title=)File:)/', '', $file);
+                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $cfile)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $cfile) . "</a>";
+                $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $cfile));
+                $subj = $cfile;
             } else {
                 $p3s = $p3sm = "attached to this eMail";
                 $subj = "release";
