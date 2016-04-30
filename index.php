@@ -54,14 +54,14 @@
     <?php
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
-        $name = $rep = $auth = $file = $license = $s1 = $s2 = $s3 = $s4 = "";
+        $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = $s4 = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $starttime = test_input($_POST["starttime"]);
             $name = test_input($_POST["name"]);
             $rep = test_input($_POST["rep"]);
             $auth = test_input($_POST["auth"]);
-            $file = test_input($_POST["file"]);
+            $filer = test_input($_POST["filer"]);
             $license = test_input($_POST["license"]);
             $s1 = test_input($_POST["s1"]);
             $s2 = test_input($_POST["s2"]);
@@ -159,7 +159,7 @@
           <div class="col-md-4">
             <div style="display:none;" id="iatt">
               <div style="display:none;" id="iup">
-                Wikimedia Commons file name (without prefix)<br /><input type="text" name="file" placeholder="Example.jpg (required)" class="form-control" />
+                Wikimedia Commons file name<br /><input type="text" name="filer" placeholder="Example.jpg (required)" class="form-control" />
                 <br /><br />
               </div>
               <a role="button" href="#s3" class="btn btn-primary btn-block smsc nt">proceed to the next step</a>
@@ -216,7 +216,7 @@
         <br />
         result [ <a href="#s1" class="smsc">start over</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+result" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
         <br /><br />
-        <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($file == "")) && ($s3 != "") && ($license != "")) {
+        <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
         ?>
         <div class="col-md-7">
           <p>If you have an eMail client installed, just <b>click the button</b> to create the release eMail. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an eMail to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
@@ -242,10 +242,10 @@
                     break;
             }
             if ($s2 == "1") {
-                $cfile = preg_replace('/(File:|(http|https):\/\/commons.wikimedia.org\/(wiki\/|w\/index\.php\?title=)File:)/', '', $file);
-                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $cfile)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $cfile) . "</a>";
-                $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $cfile));
-                $subj = $cfile;
+                $file = preg_replace("/(File:|(http|https):\/\/commons.wikimedia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
+                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $cfile) . "</a>";
+                $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
+                $subj = $file;
             } else {
                 $p3s = $p3sm = "attached to this eMail";
                 $subj = "release";
@@ -269,7 +269,7 @@
             } else {
                 if ($name == "") echo "<p class='text-danger'>Error: No name specified!</p>";
                 if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>Error: No copyright holder and/or authority specified!</p>";
-                if (($s2 == "1") && ($file == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
+                if (($s2 == "1") && ($filer == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
                 if ($license == "") echo "<p class='text-danger'>Error: No license specified!</p>";
             }
         ?>
