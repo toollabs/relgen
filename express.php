@@ -67,6 +67,7 @@
             return $data;
         }
         
+        if ($license == "") $license = "Creative Commons Attribution-Share Alike 4.0 International";
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
         if ($s3 == "") $s3 = "1";
@@ -87,7 +88,7 @@
           <br /><br />
           <div class="col-md-7">
             <p>I agree to publish the above-mentioned content under the following free license:</p>
-            <input type="text" name="license" value="Creative Commons Attribution-Share Alike 4.0 International" class="form-control" /><br />
+            <input type="text" name="license" value="<?=$license?>" class="form-control" /><br />
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.</p>
             <p>I am aware that this agreement is not limited to Wikipedia or related sites.</p>
             <p>I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.</p>
@@ -98,14 +99,14 @@
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iag">
-              my name<br /><input type="text" name="name" value="<?php echo $name;?>" placeholder="John Doe (required)" class="form-control" />
+              my name<br /><input type="text" name="name" value="<?=$name?>" placeholder="John Doe (required)" class="form-control" />
               <?php
                   if ($s1 == "2") {
               ?>
               <br />
-              copyright holder<br /><input type="text" name="rep" value="<?php echo $rep;?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" />
+              copyright holder<br /><input type="text" name="rep" value="<?=$rep?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" />
               <br />
-              my authority<br /><input type="text" name="auth" value="<?php echo $auth;?>" placeholder="CEO, appointed representative, … (required)" class="form-control" />
+              my authority<br /><input type="text" name="auth" value="<?=$auth?>" placeholder="CEO, appointed representative, … (required)" class="form-control" />
               <?php
                   }
               ?>
