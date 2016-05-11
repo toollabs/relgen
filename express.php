@@ -53,7 +53,7 @@
             $name = test_input($_GET["name"]);
             $rep = test_input($_GET["rep"]);
             $auth = test_input($_GET["auth"]);
-            $filer = test_input($_GET["filer"]);
+            $filer = test_input($_GET["file"]);
             $license = test_input($_GET["license"]);
             $s1 = test_input($_GET["s1"]);
             $s2 = test_input($_GET["s2"]);
