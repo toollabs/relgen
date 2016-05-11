@@ -34,6 +34,7 @@
             <th>date</th>
             <th>time visit began</th>
             <th>time release generated</th>
+            <th>notes</th>
           </tr>
           <?php
             $stats = fopen("stats/" . date('Y') . ".csv", "r");
