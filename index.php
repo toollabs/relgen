@@ -54,10 +54,11 @@
     <?php
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
-        $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
+        $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $starttime = test_input($_POST["starttime"]);
+            $trn = test_input($_POST["trn"]);
             $name = test_input($_POST["name"]);
             $rep = test_input($_POST["rep"]);
             $auth = test_input($_POST["auth"]);
@@ -213,7 +214,7 @@
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
           $stats = fopen("stats/" . date('Y') . ".csv", "a");
-          fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s")), ";");
+          fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
         ?>
         <div class="col-md-7">
@@ -240,7 +241,7 @@
                     break;
             }
             if ($s2 == "1") {
-                $file = preg_replace("/(File:|(http|https):\/\/commons.wikimedia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
+                $file = preg_replace("/(File:|(http|https):\/\/(commons|en).wiki(m|p)edia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
                 $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
                 $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
                 $subj = $file;
