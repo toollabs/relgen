@@ -275,10 +275,10 @@
         <br />
       </div>
       <div id="sfeedback" class="row hof">
-      <div class="form-group">
+        <div class="form-group">
         <form id="upload" method="post" enctype="multipart/form-data" target="_blank" action="https://commons.wikimedia.org/w/index.php?title=User_talk:FDMS4x&amp;action=edit&amp;section=new" style="display:inline">
         <label for="Summary">Summary</label>
-        <input class="form-control" value="Bugreport: Labs tool" name="wpSummary">
+        <input class="form-control" value="Wikimedia OTRS release generator feedback" name="wpSummary">
         <label for="Text">Feedback:</label>
         <p class="bg-info">You can use [[Wikisyntax]].</p>
         <textarea class="form-control" name="wpTextbox1"></textarea>
@@ -289,8 +289,10 @@
         <br>
         <p class="bg-warning">If you are not logged in on Wikimedia Commons your IP address will be recorded in the page's edit history.</p>
         <br>
-        <input class="btn btn-primary" name="wpPreview" value="Preview & save" type="submit">
+        <input class="btn btn-primary" name="wpPreview" value="Preview" type="submit">
         </form>
+        </div>
+    </div>
     </div>
   </body>
 </html>
