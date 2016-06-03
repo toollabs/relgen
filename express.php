@@ -82,12 +82,15 @@
         <input type="hidden" name="s2" value="<?=$s2?>" />
         <input type="hidden" name="s3" value="<?=$s3?>" />
         
-        <div id="s4" class="hof">
-        <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">express 0.1</a></small></h1>
-        <div class="row">
-          <br /><br />
+        <div class="row hof">
+          <div class="col-md-11">
+            <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">express 0.2</a></small></h1>
+            <br /><br />
+          </div>
           <div class="col-md-7">
-            <p>I agree to publish the above-mentioned content under the following free license:</p>
+            <?php if ($filer != "") {
+            ?>
+            <p>I agree to publish <?=$filer?> under the following free license:</p>
             <input type="text" name="license" value="<?=$license?>" class="form-control" /><br />
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.</p>
             <p>I am aware that this agreement is not limited to Wikipedia or related sites.</p>
@@ -96,6 +99,11 @@
             <br />
             <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">I agree</button>
             <br /><br />
+            <?php
+              } else {
+                echo "<p class='text-danger'>Error: No content specified!</p>";
+              }
+            ?>
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iag">
