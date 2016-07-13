@@ -172,7 +172,7 @@
               <label class="btn btn-default btn-block" onclick="$('#i3').show();"><input type="radio" id="s33" name="s3" value="3" />I want to release both the work depicted and the media work</label>
             </div>
             <br />
-            <p>If the media work depicts or otherwise includes someone else's artwork in a non-trivial manner, it is a <a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>derivative work</b></a> and therefore a seperate release from the copyright holder of the depicted artwork is generally required.</p>
+            <p>If the media work depicts or otherwise includes someone else's artwork in a non-trivial manner, it is a <a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>derivative work</b></a> and therefore a separate release from the copyright holder of the depicted artwork is generally required.</p>
             <p>In some countries, thanks to the <a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>freedom of panaroma</b></a> exeption, architecture and other artwork on permanent public display are exempted from this requirement. In the United States, only architecture is exempted.</p>
             <br /><br />
           </div>
