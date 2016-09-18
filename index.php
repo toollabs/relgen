@@ -47,11 +47,49 @@
               }
           });
       });
+      function s1v() {
+          s1vi = 0;
+          if (!$("#namei").val().match(/\w/)) {
+              if (!$("#s1fg1").hasClass("has-error")) {
+                  $("#s1fg1").addClass("has-error");
+              }
+              s1vi++;
+          }
+          if ($("#irep").css("display") != "none") {
+              if (!$("#repi").val().match(/\w/)) {
+                  if (!$("#s1fg2").hasClass("has-error")) {
+                      $("#s1fg2").addClass("has-error");
+                  }
+                  s1vi++;
+              }
+              if (!$("#authi").val().match(/\w/)) {
+                  if (!$("#s1fg3").hasClass("has-error")) {
+                      $("#s1fg3").addClass("has-error");
+                  }
+                  s1vi++;
+              }
+          }
+          if (s1vi == 0) {
+              $("html, body").animate({
+                  scrollTop: $(s2).offset().top
+              }, 400);
+              if ($("#s1fg1").hasClass("has-error")) {
+                  $("#s1fg1").removeClass("has-error");
+              }
+              if ($("#s1fg2").hasClass("has-error")) {
+                  $("#s1fg2").removeClass("has-error");
+              }
+              if ($("#s1fg3").hasClass("has-error")) {
+                  $("#s1fg3").removeClass("has-error");
+              }
+          }
+      }
     </script>
   </head>
   <body style="background: url('bg.png') no-repeat fixed right bottom; overflow:hidden;">
 
     <?php
+        $relgen = "0.9.9";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -90,7 +128,7 @@
     ?>
 
     <div class="container">
-      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">0.9.8</a></small></h1>
+      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;"><?php echo $relgen;?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/index.php">
 
@@ -118,18 +156,18 @@
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iam">
-              my name<br /><input type="text" name="name" value="<?php echo $name;?>" placeholder="John Doe (required)" class="form-control" />
+              <div id="s1fg1" class="form-group">my name<br /><input id="namei" type="text" name="name" value="<?php echo $name;?>" placeholder="John Doe (required)" class="form-control" /></div>
               <div style="display:none;" id="irep">
                 <br />
-                copyright holder<br /><input type="text" name="rep" value="<?php echo $rep;?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" />
+                <div id="s1fg2" class="form-group">copyright holder<br /><input id="repi" type="text" name="rep" value="<?php echo $rep;?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" /></div>
                 <br />
-                my authority<br /><input type="text" name="auth" value="<?php echo $auth;?>" placeholder="CEO, appointed representative, … (required)" class="form-control" />
+                <div id="s1fg3" class="form-group">my authority<br /><input id="authi" type="text" name="auth" value="<?php echo $auth;?>" placeholder="CEO, appointed representative, … (required)" class="form-control" /></div>
               </div>
               <br /><br />
-              <a role="button" href="#s2" class="btn btn-primary btn-block smsc nt">proceed to the next step</a>
+              <a role="button" class="btn btn-primary btn-block nt" onclick="s1v()">proceed to the next step</a>
             </div>
             <div style="display:none;" id="idk">
-              <p class="text-danger">Wikimedia OTRS cannot accept a release from you – please <a href="//commons.wikimedia.org/wiki/Commons:OTRS#If_you_are_not_the_copyright_holder">reach out to the copyright holder</a> instead.</p>
+              <p class="text-danger">Wikimedia OTRS cannot accept a release from you – please <a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">reach out to the copyright holder</a> instead.</p>
             </div>
           </div>
           <br />
@@ -190,10 +228,23 @@
           <br /><br />
           <div class="col-md-7">
             <p>I agree to publish the above-mentioned content under the following free license:</p>
-            <input type="text" name="license" value="Creative Commons Attribution-Share Alike 4.0 International" class="form-control" /><br />
+            <div class="input-group">
+              <input id="licensei" type="text" name="license" value="Creative Commons Attribution-ShareAlike 4.0 International" class="form-control" />
+              <div class="input-group-btn">
+                <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a onclick="$('#licensei').attr('value', 'Creative Commons Attribution-ShareAlike 4.0 International');$('#iawattr').show()">Creative Commons Attribution-ShareAlike 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').attr('value', 'Creative Commons Attribution 4.0 International');$('#iawattr').show()">Creative Commons Attribution 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').attr('value', 'Creative Commons CC0 1.0 Universal');$('#iawattr').hide()">Creative Commons CC0 1.0 Universal (public domain dedication)</a></li>
+                </ul>
+                <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
+                  <span class="glyphicon glyphicon-question-sign" />
+                </a>
+              </div>
+            </div><br />
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.</p>
             <p>I am aware that this agreement is not limited to Wikipedia or related sites.</p>
-            <p>I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.</p>
+            <p id="iawattr">I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.</p>
             <p>I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.</p>
             <br />
             <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">I agree</button>
@@ -254,15 +305,18 @@
             $b2 = "I agree to publish the above-mentioned work under the $license.";
             $b3 = "I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.";
             $b4 = "I am aware that this agreement is not limited to Wikipedia or related sites.";
-            $b5 = "I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
+            if ($license != "Creative Commons CC0 1.0 Universal") {
+                $b5 = "<br />I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
+                $b5m = "%0A$ am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
+            }
             $b6 = "I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.";
             $tracking = "[generated using relgen]";
-            echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4<br />$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
+            echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
           ?>
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?>%0A<?=$b5?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release eMail</a>
+          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release eMail</a>
         </div>
         <?php
             } else {
