@@ -243,13 +243,13 @@
           <div class="col-md-7">
             <p>I agree to publish the above-mentioned content under the following free license:</p>
             <div id="s4fg" class="form-group"><div class="input-group">
-              <div id="licenseiw"><input id="licensei" type="text" name="license" value="Creative Commons Attribution-ShareAlike 4.0 International" class="form-control" /></div>
+              <input id="licensei" type="text" name="license" value="Creative Commons Attribution-ShareAlike 4.0 International" class="form-control" />
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a onclick="$('#licenseiw').html('<input id=\'licensei\' type=\'text\' name=\'license\' value=\'Creative Commons Attribution-ShareAlike 4.0 International\' class=\'form-control\' />');$('#iawattr').show()">Creative Commons Attribution-ShareAlike 4.0 International</a></li>
-                  <li><a onclick="$('#licenseiw').html('<input id=\'licensei\' type=\'text\' name=\'license\' value=\'Creative Commons Attribution 4.0 International\' class=\'form-control\' />');$('#iawattr').show()">Creative Commons Attribution 4.0 International</a></li>
-                  <li><a onclick="$('#licenseiw').html('<input id=\'licensei\' type=\'text\' name=\'license\' value=\'Creative Commons CC0 1.0 Universal\' class=\'form-control\' />');$('#iawattr').hide()">Creative Commons CC0 1.0 Universal (public domain dedication)</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons Attribution-ShareAlike 4.0 International'); $('#iawattr').show();">Creative Commons Attribution-ShareAlike 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons Attribution 4.0 International'); $('#iawattr').show();">Creative Commons Attribution 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons CC0 1.0 Universal'); $('#iawattr').hide();">Creative Commons CC0 1.0 Universal (public domain dedication)</a></li>
                 </ul>
                 <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
                   <span class="glyphicon glyphicon-question-sign" />
