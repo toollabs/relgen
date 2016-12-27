@@ -71,6 +71,18 @@
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
         if ($s3 == "") $s3 = "1";
+        
+        switch ($s3) {
+            case "1":
+                $p2s = "the media work";
+                break;
+            case "2":
+                $p2s = "the work depicted in the media";
+                break;
+            case "3":
+                $p2s = "both the work depicted and the media";
+                break;
+        }
     ?>
 
     <div class="container">
@@ -81,6 +93,7 @@
         <input type="hidden" name="s1" value="<?=$s1?>" />
         <input type="hidden" name="s2" value="<?=$s2?>" />
         <input type="hidden" name="s3" value="<?=$s3?>" />
+        <input type="hidden" name="result" value="1" />
         
         <div class="row hof">
           <div class="col-md-11">
@@ -90,7 +103,7 @@
           <div class="col-md-7">
             <?php if ($filer != "") {
             ?>
-            <p>I agree to publish <?=$filer?> under the following free license:</p>
+            <p>I agree to publish <?=$p2s?> <?=$filer?> under the following free license:</p>
             <input type="text" name="license" value="<?=$license?>" class="form-control" /><br />
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.</p>
             <p>I am aware that this agreement is not limited to Wikipedia or related sites.</p>
