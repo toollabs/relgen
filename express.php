@@ -40,6 +40,45 @@
               }
           });
       });
+        
+      function v() {
+          vi = 0;
+          if (!$("#namei").val().match(/\w/)) {
+              if (!$("#fg1").hasClass("has-error")) {
+                  $("#fg1").addClass("has-error");
+              }
+              vi++;
+          } else {
+              if ($("#fg1").hasClass("has-error")) {
+                  $("#fg1").removeClass("has-error");
+              }
+          }
+          if ($("#irep").css("display") != "none") {
+              if (!$("#repi").val().match(/\w/)) {
+                  if (!$("#fg2").hasClass("has-error")) {
+                      $("#fg2").addClass("has-error");
+                  }
+                  vi++;
+              } else {
+                  if ($("#fg2").hasClass("has-error")) {
+                      $("#fg2").removeClass("has-error");
+                  }
+              }
+              if (!$("#authi").val().match(/\w/)) {
+                  if (!$("#fg3").hasClass("has-error")) {
+                      $("#fg3").addClass("has-error");
+                  }
+                  vi++;
+              } else {
+                  if ($("#fg3").hasClass("has-error")) {
+                      $("#fg3").removeClass("has-error");
+                  }
+              }
+          }
+          if (vi == 0) {
+              $("form").submit();
+          }
+      }
     </script>
   </head>
   <body style="background: url('bg.png') no-repeat fixed right bottom; overflow:hidden;">
@@ -120,19 +159,15 @@
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iag">
-              my name<br /><input type="text" name="name" value="<?=$name?>" placeholder="John Doe (required)" class="form-control" />
-              <?php
-                  if ($s1 == "2") {
-              ?>
-              <br />
-              copyright holder<br /><input type="text" name="rep" value="<?=$rep?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" />
-              <br />
-              my authority<br /><input type="text" name="auth" value="<?=$auth?>" placeholder="CEO, appointed representative, … (required)" class="form-control" />
-              <?php
-                  }
-              ?>
+              my name<br /><div id="fg1" class="form-group"><input id="namei" type="text" name="name" value="<?=$name?>" placeholder="John Doe (required)" class="form-control" /></div>
+              <div<?php if ($s1 != "2") { ?> style="display:none;"<?php } ?> id="irep">
+                <br />
+                copyright holder<br /><div id="fg2" class="form-group"><input id="repi" type="text" name="rep" value="<?=$rep?>" placeholder="Ace Inc. / Jane Roe (required)" class="form-control" /></div>
+                <br />
+                my authority<br /><div id="fg3" class="form-group"><input id="authi" type="text" name="auth" value="<?=$auth?>" placeholder="CEO, appointed representative, … (required)" class="form-control" /></div>
+              </div>
               <br /><br />
-              <input type="submit" name="submit" value="proceed to the next step" class="btn btn-primary btn-block nt" />
+              <a role="button" class="btn btn-primary btn-block nt" onclick="v()">proceed to the next step</a>
             </div>
           </div>
           <br />
