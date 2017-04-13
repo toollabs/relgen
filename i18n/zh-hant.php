@@ -224,7 +224,7 @@
               <label class="btn btn-default btn-block" onclick="$('#i3').show();"><input type="radio" id="s33" name="s3" value="3" />我要釋出媒體作品與從其作品當中創作的作品</label>
             </div>
             <br />
-            <p>如果您的作品是從某人的作品以複雜方式進行創作或將某人的作品包含其中，那麼該作品就是一件<a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>衍伸創作作品</b></a>，一般必須要提供該作品與其原始作品的著作權持有者釋出許可。</p>
+            <p>如果您的作品是從某人的作品以複雜方式進行創作或將某人的作品包含其中，那麼該作品就是一件<a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>衍生創作作品</b></a>，一般必須要提供該作品與其原始作品的著作權持有者釋出許可。</p>
             <p>在部分國家，由於有<a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>全景自由攝影</b></a>的例外，建築物或其他永久公開展示的作品可不用提供原始著作權持有者釋出許可。在美國，只有建築物不需要提供原始著作權持有者的許可。</p>
             <br /><br />
           </div>
