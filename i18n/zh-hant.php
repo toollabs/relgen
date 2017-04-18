@@ -1,9 +1,9 @@
 <?php
     if (isset($_GET['source'])) {show_source(__FILE__); exit();}
     /**
-     * @author Stöger Florian D. M. (http://fdms.eu)
+     * @author Stöger Florian D. M. (http://fdms.eu; zh-hant translation by Taiwania)
      * @license EUPL 1.1 (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf)
-     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu)
+     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu; zh-hant translation by Taiwania)
      */
 ?>
 <!DOCTYPE HTML>
@@ -103,6 +103,7 @@
 
     <?php
         $relgen = "0.9.9";
+        $lang = "zh-hant";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -141,14 +142,15 @@
     ?>
 
     <div class="container">
-      <h1>維基媒體 OTRS 釋出產生器 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;"><?php echo $relgen;?></a></small></h1>
+      <h1>維基媒體 OTRS 釋出產生器 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(zh-hant translation by Taiwania)" style="color:#777;"><?=$relgen?></a></small></h1>
   
-      <form method="post" action="//tools.wmflabs.org/relgen/index.php">
+      <form method="post" action="//tools.wmflabs.org/relgen/i18n/zh-hant.php">
 
         <div id="s0" class="row hof"> <!-- step 0 -->
           <br /><br />
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">開始</a>
+          <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
           <input type="hidden" name="result" value="1" />
           </div><br />
@@ -243,12 +245,12 @@
           <div class="col-md-7">
             <p>我同意將上述提到的內容以下列自由授權釋出：</p>
             <div id="s4fg" class="form-group"><div class="input-group">
-              <input id="licensei" type="text" name="license" value="創用CC 姓名標示-相同方式分享 4.0 國際版" class="form-control" />
+              <input id="licensei" type="text" name="license" value="創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)" class="form-control" />
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a onclick="$('#licensei').val('創用CC 姓名標示-相同方式分享 4.0 國際版'); $('#iawattr').show();">創用CC 姓名標示-相同方式分享 4.0 國際版</a></li>
-                  <li><a onclick="$('#licensei').val('創用CC 姓名標示 4.0 國際版'); $('#iawattr').show();">創用CC 姓名標示 4.0 國際版</a></li>
+                  <li><a onclick="$('#licensei').val('創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)'); $('#iawattr').show();">創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)</a></li>
+                  <li><a onclick="$('#licensei').val('創用CC 姓名標示 4.0 國際版 (CC BY 4.0)'); $('#iawattr').show();">創用CC 姓名標示 4.0 國際版 (CC BY 4.0)</a></li>
                   <li><a onclick="$('#licensei').val('創用CC CC0 1.0 通用版'); $('#iawattr').hide();">創用CC CC0 1.0 通用版 (貢獻至公共領域)</a></li>
                 </ul>
                 <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
@@ -316,7 +318,7 @@
             }
             $b1 = "我在此確認 $p1s$p2s ($p3s) 的創作者或著作權唯一持有者。";
             $b1m = "我在此確認 $p1s$p2s ($p3sm) 的創作者或著作權唯一持有者。";
-            $b2 = "我同意該作品以下列開放授權釋出：$license。";
+            $b2 = "我同意該作品以下列開放授權釋出：$license" . "。";
             $b3 = "我明白當我以上述授權釋出後，我便允許任何人在其他授權以及法律的限制下，對本作品進行商業或其他的再製使用、或根據他們的需求任意修改。";
             $b4 = "我理解這樣的授權並不只限於維基百科以及其他相關站臺之內。";
             if ($license != "創用CC CC0 1.0 通用版") {
