@@ -280,7 +280,7 @@
         步驟 5/5 [ <a href="#s1" class="smsc">從頭開始</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+5" target="_blank">說明</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">回饋</a> ]
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
-          $stats = fopen("stats/" . date('Y') . ".csv", "a");
+          $stats = fopen("../stats/" . date('Y') . ".csv", "a");
           fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
         ?>
