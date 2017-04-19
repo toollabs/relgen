@@ -7,9 +7,9 @@
      */
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-Hant">
   <head>
-    <title>維基媒體 OTRS 釋出產生器</title>
+    <title>維基媒體 OTRS 釋出信產生器</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="//tools-static.wmflabs.org/static/jquery-ui/1.11.1/jquery-ui.css">
@@ -142,7 +142,7 @@
     ?>
 
     <div class="container">
-      <h1>維基媒體 OTRS 釋出產生器 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(zh-hant translation by Taiwania)" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>維基媒體 OTRS 釋出信產生器 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="由<a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a>建立運營<br />©（<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>）<a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(zh-hant translation by Taiwania)" style="color:#777;"><?=$relgen?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/i18n/zh-hant.php">
 
@@ -167,7 +167,7 @@
               <label class="btn btn-default btn-block" onclick="$('#iam').hide();$('#irep').hide();$('#idk').show();"><input type="radio" id="s13" name="s1" value="" />我不知道著作權持有者是誰</label>
             </div>
             <br />
-            <p>一件多媒體作品的著作權持有者指的是<b>創造該作品的人</b> (如攝影者、設計者、畫家等)，除非其著作權已經由法律或合約操作進行轉移。</p>
+            <p>一件多媒體作品的著作權持有者指的是<b>創造該作品的人</b>（如攝影者、設計者、畫家等），除非其著作權已經由法律或合約操作進行轉移。</p>
             <br /><br />
           </div>
           <div class="col-md-4">
@@ -183,7 +183,7 @@
               <a role="button" class="btn btn-primary btn-block nt" onclick="s1v()">前進至下一步</a>
             </div>
             <div style="display:none;" id="idk">
-              <p class="text-danger">維基媒體 OTRS 不能接受您的釋出授權──請向<a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">該作品的著作權持有人聯繫</a>。</p>
+              <p class="text-danger">維基媒體 OTRS 不能接受您的釋出授權——請向<a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">該作品的著作權持有人聯繫</a>。</p>
             </div>
           </div>
           <br />
@@ -227,7 +227,7 @@
             </div>
             <br />
             <p>如果您的作品是從某人的作品以複雜方式進行創作或將某人的作品包含其中，那麼該作品就是一件<a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>衍生創作作品</b></a>，一般必須要提供該作品與其原始作品的著作權持有者釋出許可。</p>
-            <p>在部分國家，由於有<a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>全景自由攝影</b></a>的例外，建築物或其他永久公開展示的作品可不用提供原始著作權持有者釋出許可。在美國，只有建築物不需要提供原始著作權持有者的許可。</p>
+            <p>在部分國家，由於有<a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>「室外公共場合攝影、繪圖之自由」</b></a>的例外，建築物或其他永久公開展示的作品可不用提供原始著作權持有者釋出許可。在美國，只有建築物不需要提供原始著作權持有者的許可。在臺灣，只有繪圖不需要提供原始著作權持有者的許可。</p>
             <br /><br />
           </div>
           <div class="col-md-4">
@@ -245,13 +245,13 @@
           <div class="col-md-7">
             <p>我同意將上述提到的內容以下列自由授權釋出：</p>
             <div id="s4fg" class="form-group"><div class="input-group">
-              <input id="licensei" type="text" name="license" value="創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)" class="form-control" />
+              <input id="licensei" type="text" name="license" value="創用CC 姓名標示-相同方式分享 4.0 國際版（CC BY-SA 4.0）" class="form-control" />
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a onclick="$('#licensei').val('創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)'); $('#iawattr').show();">創用CC 姓名標示-相同方式分享 4.0 國際版 (CC BY-SA 4.0)</a></li>
-                  <li><a onclick="$('#licensei').val('創用CC 姓名標示 4.0 國際版 (CC BY 4.0)'); $('#iawattr').show();">創用CC 姓名標示 4.0 國際版 (CC BY 4.0)</a></li>
-                  <li><a onclick="$('#licensei').val('創用CC CC0 1.0 通用版'); $('#iawattr').hide();">創用CC CC0 1.0 通用版 (貢獻至公共領域)</a></li>
+                  <li><a onclick="$('#licensei').val('創用CC 姓名標示-相同方式分享 4.0 國際版（CC BY-SA 4.0）'); $('#iawattr').show();">創用CC 姓名標示-相同方式分享 4.0 國際版（CC BY-SA 4.0）</a></li>
+                  <li><a onclick="$('#licensei').val('創用CC 姓名標示 4.0 國際版（CC BY 4.0）'); $('#iawattr').show();">創用CC 姓名標示 4.0 國際版（CC BY 4.0）</a></li>
+                  <li><a onclick="$('#licensei').val('創用CC CC0 1.0 通用版'); $('#iawattr').hide();">創用CC CC0 1.0 通用版（貢獻至公共領域）</a></li>
                 </ul>
                 <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
                   <span class="glyphicon glyphicon-question-sign" />
@@ -290,11 +290,11 @@
           <br />
           <?php
             if ($s1 == "1") {
-                $p1s = "$name 是";
+                $p1s = "為${name}，即";
             } else {
-                $p1s = "我代表 $rep，是";
-                $p1s_ = "<br />$rep 的 $auth";
-                $p1s_m = "%0A$rep 的 $auth";
+                $p1s = "代表${rep}，即";
+                $p1s_ = "<br />${rep}的${auth}";
+                $p1s_m = "%0A${rep}的${auth}";
             }
             switch ($s3) {
                 case "1":
@@ -316,9 +316,9 @@
                 $p3s = $p3sm = "附於本封電子郵件之檔案";
                 $subj = "釋出";
             }
-            $b1 = "我在此確認 $p1s$p2s ($p3s) 的創作者或著作權唯一持有者。";
-            $b1m = "我在此確認 $p1s$p2s ($p3sm) 的創作者或著作權唯一持有者。";
-            $b2 = "我同意該作品以下列開放授權釋出：$license" . "。";
+            $b1 = "我在此確認自己${p1s}${p2s}（${p3s}）的創作者或著作權唯一持有者。";
+            $b1m = "我在此確認自己${p1s}${p2s}（${p3sm}）的創作者或著作權唯一持有者。";
+            $b2 = "我同意以「${license}」這一開放授權釋出該作品。";
             $b3 = "我明白當我以上述授權釋出後，我便允許任何人在其他授權以及法律的限制下，對本作品進行商業或其他的再製使用、或根據他們的需求任意修改。";
             $b4 = "我理解這樣的授權並不只限於維基百科以及其他相關站臺之內。";
             if ($license != "創用CC CC0 1.0 通用版") {
