@@ -15,11 +15,14 @@
     <link rel="stylesheet" href="//tools-static.wmflabs.org/static/jquery-ui/1.11.1/jquery-ui.css">
     <style>
       p {
-          background-color:white;
+          background-color: white;
       }
       .hof {
-          height:100vh;
-          overflow-y:auto;
+          height: 100vh;
+          overflow-y: auto;
+      }
+      .dropdown-menu li {
+          cursor: pointer;
       }
     </style>
     <script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -43,6 +46,16 @@
         
       function v() {
           vi = 0;
+          if (!$("#licensei").val().match(/\w/)) {
+              if (!$("#fg0").hasClass("has-error")) {
+                  $("#fg0").addClass("has-error");
+              }
+              vi++;
+          } else {
+              if ($("#fg0").hasClass("has-error")) {
+                  $("#fg0").removeClass("has-error");
+              }
+          }
           if (!$("#namei").val().match(/\w/)) {
               if (!$("#fg1").hasClass("has-error")) {
                   $("#fg1").addClass("has-error");
@@ -106,7 +119,7 @@
             return $data;
         }
         
-        if ($license == "") $license = "Creative Commons Attribution-Share Alike 4.0 International";
+        if ($license == "") $license = "Creative Commons Attribution-ShareAlike 4.0 International";
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
         if ($s3 == "") $s3 = "1";
@@ -143,10 +156,23 @@
             <?php if ($filer != "") {
             ?>
             <p>I agree to publish <?=$p2s?> <?=$filer?> under the following free license:</p>
-            <input type="text" name="license" value="<?=$license?>" class="form-control" /><br />
+            <div id="fg0" class="form-group"><div class="input-group">
+              <input id="licensei" type="text" name="license" value="<?=$license?>" class="form-control" />
+              <div class="input-group-btn">
+                <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a onclick="$('#licensei').val('Creative Commons Attribution-ShareAlike 4.0 International'); $('#iawattr').show();">Creative Commons Attribution-ShareAlike 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons Attribution 4.0 International'); $('#iawattr').show();">Creative Commons Attribution 4.0 International</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons CC0 1.0 Universal'); $('#iawattr').hide();">Creative Commons CC0 1.0 Universal (public domain dedication)</a></li>
+                </ul>
+                <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
+                  <span class="glyphicon glyphicon-question-sign" />
+                </a>
+              </div>
+            </div></div>
             <p>I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.</p>
             <p>I am aware that this agreement is not limited to Wikipedia or related sites.</p>
-            <p>I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.</p>
+            <p id="iawattr">I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.</p>
             <p>I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.</p>
             <br />
             <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">I agree</button>
