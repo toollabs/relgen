@@ -53,39 +53,42 @@
       
       function s1v() {
           s1vi = 0;
-          if (!$("#namei").val().match(/\w/)) {
+          if (!$("#namei").val().match(/\S/)) {
               if (!$("#s1fg1").hasClass("has-error")) {
                   $("#s1fg1").addClass("has-error");
               }
               s1vi++;
+          } else {
+              if ($("#s1fg1").hasClass("has-error")) {
+                  $("#s1fg1").removeClass("has-error");
+              }
           }
           if ($("#irep").css("display") != "none") {
-              if (!$("#repi").val().match(/\w/)) {
+              if (!$("#repi").val().match(/\S/)) {
                   if (!$("#s1fg2").hasClass("has-error")) {
                       $("#s1fg2").addClass("has-error");
                   }
                   s1vi++;
+              } else {
+                  if ($("#s1fg2").hasClass("has-error")) {
+                      $("#s1fg2").removeClass("has-error");
+                  }
               }
               if (!$("#authi").val().match(/\w/)) {
                   if (!$("#s1fg3").hasClass("has-error")) {
                       $("#s1fg3").addClass("has-error");
                   }
                   s1vi++;
+              } else {
+                  if ($("#s1fg3").hasClass("has-error")) {
+                      $("#s1fg3").removeClass("has-error");
+                  }
               }
           }
           if (s1vi == 0) {
               $("html, body").animate({
                   scrollTop: $(s2).offset().top
               }, 400);
-              if ($("#s1fg1").hasClass("has-error")) {
-                  $("#s1fg1").removeClass("has-error");
-              }
-              if ($("#s1fg2").hasClass("has-error")) {
-                  $("#s1fg2").removeClass("has-error");
-              }
-              if ($("#s1fg3").hasClass("has-error")) {
-                  $("#s1fg3").removeClass("has-error");
-              }
           }
       }
       function s4v() {
@@ -141,7 +144,7 @@
     ?>
 
     <div class="container">
-      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;"><?php echo $relgen;?></a></small></h1>
+      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/index.php">
 
@@ -283,7 +286,7 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>If you have an eMail client installed, just <b>click the button</b> to create the release eMail. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an eMail to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
+          <p>If you have an eMail client installed, simply <b>click the button</b> to create the release eMail. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an eMail to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
           <p>The eMail should come from an <b>eMail address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your eMail address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your eMail address should be an official eMail address of the organisation.</p>
           <br />
           <?php
