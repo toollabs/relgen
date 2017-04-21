@@ -53,39 +53,42 @@
       
       function s1v() {
           s1vi = 0;
-          if (!$("#namei").val().match(/\w/)) {
+          if (!$("#namei").val().match(/\S/)) {
               if (!$("#s1fg1").hasClass("has-error")) {
                   $("#s1fg1").addClass("has-error");
               }
               s1vi++;
+          } else {
+              if ($("#s1fg1").hasClass("has-error")) {
+                  $("#s1fg1").removeClass("has-error");
+              }
           }
           if ($("#irep").css("display") != "none") {
-              if (!$("#repi").val().match(/\w/)) {
+              if (!$("#repi").val().match(/\S/)) {
                   if (!$("#s1fg2").hasClass("has-error")) {
                       $("#s1fg2").addClass("has-error");
                   }
                   s1vi++;
+              } else {
+                  if ($("#s1fg2").hasClass("has-error")) {
+                      $("#s1fg2").removeClass("has-error");
+                  }
               }
               if (!$("#authi").val().match(/\w/)) {
                   if (!$("#s1fg3").hasClass("has-error")) {
                       $("#s1fg3").addClass("has-error");
                   }
                   s1vi++;
+              } else {
+                  if ($("#s1fg3").hasClass("has-error")) {
+                      $("#s1fg3").removeClass("has-error");
+                  }
               }
           }
           if (s1vi == 0) {
               $("html, body").animate({
                   scrollTop: $(s2).offset().top
               }, 400);
-              if ($("#s1fg1").hasClass("has-error")) {
-                  $("#s1fg1").removeClass("has-error");
-              }
-              if ($("#s1fg2").hasClass("has-error")) {
-                  $("#s1fg2").removeClass("has-error");
-              }
-              if ($("#s1fg3").hasClass("has-error")) {
-                  $("#s1fg3").removeClass("has-error");
-              }
           }
       }
       function s4v() {
