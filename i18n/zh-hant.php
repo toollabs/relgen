@@ -53,7 +53,7 @@
       
       function s1v() {
           s1vi = 0;
-          if (!$("#namei").val().match(/\S/)) {
+          if (!$("#namei").val().trim()) {
               if (!$("#s1fg1").hasClass("has-error")) {
                   $("#s1fg1").addClass("has-error");
               }
@@ -64,7 +64,7 @@
               }
           }
           if ($("#irep").css("display") != "none") {
-              if (!$("#repi").val().match(/\S/)) {
+              if (!$("#repi").val().trim()) {
                   if (!$("#s1fg2").hasClass("has-error")) {
                       $("#s1fg2").addClass("has-error");
                   }
@@ -74,7 +74,7 @@
                       $("#s1fg2").removeClass("has-error");
                   }
               }
-              if (!$("#authi").val().match(/\w/)) {
+              if (!$("#authi").val().trim()) {
                   if (!$("#s1fg3").hasClass("has-error")) {
                       $("#s1fg3").addClass("has-error");
                   }
@@ -92,7 +92,7 @@
           }
       }
       function s4v() {
-          if (!$("#licensei").val().match(/\w/)) {
+          if (!$("#licensei").val().trim()) {
               if (!$("#s4fg").hasClass("has-error")) {
                   $("#s4fg").addClass("has-error");
               }
