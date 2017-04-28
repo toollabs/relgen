@@ -345,6 +345,25 @@
         ?>
         <br />
       </div>
+      <div id="sfeedback" class="row hof">
+        <div class="form-group">
+        <form id="upload" method="post" enctype="multipart/form-data" target="_blank" action="https://commons.wikimedia.org/w/index.php?title=User_talk:FDMS4x&amp;action=edit&amp;section=new" style="display:inline">
+        <label for="Summary">Summary</label>
+        <input class="form-control" value="Wikimedia OTRS release generator feedback" name="wpSummary">
+        <label for="Text">Feedback:</label>
+        <p class="bg-info">You can use [[Wikisyntax]].</p>
+        <textarea class="form-control" name="wpTextbox1"></textarea>
+        <input name="wpPreview" value="wpPreview" type="hidden">
+        <input value="20110205235959" name="wpStarttime" type="hidden">
+        <input value="20110820082716" name="wpEdittime" type="hidden">
+        <input value="0" name="wpMinoredit" type="hidden">
+        <br>
+        <p class="bg-warning">If you are not logged in on Wikimedia Commons your IP address will be recorded in the page's edit history.</p>
+        <br>
+        <input class="btn btn-primary" name="wpPreview" value="Preview" type="submit">
+        </form>
+        </div>
+    </div>
     </div>
   </body>
 </html>
