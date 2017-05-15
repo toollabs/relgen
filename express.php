@@ -119,10 +119,10 @@
             return $data;
         }
         
-        if ($filer == "") $filer = "attached to this eMail";
         if ($license == "") $license = "Creative Commons Attribution-ShareAlike 4.0 International";
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
+        else if ($s2 == "2") $filer = "attached to this eMail";
         if ($s3 == "") $s3 = "1";
         
         switch ($s3) {
@@ -150,7 +150,7 @@
         
         <div class="row hof">
           <div class="col-md-11">
-            <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">express 0.2</a></small></h1>
+            <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a" style="color:#777;">express 0.3</a></small></h1>
             <br /><br />
           </div>
           <div class="col-md-7">
