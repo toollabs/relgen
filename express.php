@@ -119,6 +119,7 @@
             return $data;
         }
         
+        if ($filer == "") $filer = "attached to this eMail";
         if ($license == "") $license = "Creative Commons Attribution-ShareAlike 4.0 International";
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
