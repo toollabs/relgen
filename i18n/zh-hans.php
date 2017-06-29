@@ -248,7 +248,7 @@
           <div class="col-md-7">
             <p>我同意将上述提到的内容以下列自由许可协议发布：</p>
             <div id="s4fg" class="form-group"><div class="input-group">
-              <input id="licensei" type="text" name="license" value="创用CC 姓名标示-相同方式分享 4.0 国际版（CC BY-SA 4.0）" class="form-control" />
+              <input id="licensei" type="text" name="license" value="知识共享 署名-相同方式分享 4.0 国际版（CC BY-SA 4.0）" class="form-control" />
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
