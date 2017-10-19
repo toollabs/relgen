@@ -53,7 +53,7 @@
       
       function s1v() {
           s1vi = 0;
-          if (!$("#namei").val().match(/\S/)) {
+          if (!$("#namei").val().trim()) {
               if (!$("#s1fg1").hasClass("has-error")) {
                   $("#s1fg1").addClass("has-error");
               }
@@ -64,7 +64,7 @@
               }
           }
           if ($("#irep").css("display") != "none") {
-              if (!$("#repi").val().match(/\S/)) {
+              if (!$("#repi").val().trim()) {
                   if (!$("#s1fg2").hasClass("has-error")) {
                       $("#s1fg2").addClass("has-error");
                   }
@@ -74,7 +74,7 @@
                       $("#s1fg2").removeClass("has-error");
                   }
               }
-              if (!$("#authi").val().match(/\w/)) {
+              if (!$("#authi").val().trim()) {
                   if (!$("#s1fg3").hasClass("has-error")) {
                       $("#s1fg3").addClass("has-error");
                   }
@@ -92,7 +92,7 @@
           }
       }
       function s4v() {
-          if (!$("#licensei").val().match(/\w/)) {
+          if (!$("#licensei").val().trim()) {
               if (!$("#s4fg").hasClass("has-error")) {
                   $("#s4fg").addClass("has-error");
               }
@@ -281,7 +281,7 @@
         5단계 중 5단계 [ <a href="#s1" class="smsc">다시 시작하기</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+5" target="_blank">도움말</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">피드백</a> ]
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
-          $stats = fopen("stats/" . date('Y') . ".csv", "a");
+          $stats = fopen("../stats/" . date('Y') . ".csv", "a");
           fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
         ?>
