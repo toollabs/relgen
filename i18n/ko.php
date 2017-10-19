@@ -7,7 +7,7 @@
      */
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="ko">
   <head>
     <title>위키미디어 OTRS 허가서 생성기</title>
     <meta charset="utf-8" />
@@ -106,6 +106,7 @@
 
     <?php
         $relgen = "0.9.9";
+        $lang = "ko";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -146,12 +147,13 @@
     <div class="container">
       <h1>위키미디어 OTRS 허가서 생성기 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="<a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a>에 의해 제작, 관리됨<br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
   
-      <form method="post" action="//tools.wmflabs.org/relgen/index.php">
+      <form method="post" action="//tools.wmflabs.org/relgen/i18n/ko.php">
 
         <div id="s0" class="row hof"> <!-- step 0 -->
           <br /><br />
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">시작하기</a>
+          <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
           <input type="hidden" name="result" value="1" />
           </div><br />
