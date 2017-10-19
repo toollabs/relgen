@@ -293,9 +293,9 @@
             if ($s1 == "1") {
                 $p1s = ", $name, 는";
             } else {
-                $p1s = " $rep 을(를) 대표하며,";
-                $p1s_ = "<br />$auth of $rep";
-                $p1s_m = "%0A$auth of $rep";
+                $p1s = " $rep 의 대리인으로,";
+                $p1s_ = "<br />$rep의 $auth (으)로";
+                $p1s_m = "%0A$rep의 $auth (으)로";
             }
             switch ($s3) {
                 case "1":
@@ -314,33 +314,33 @@
                 $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
                 $subj = $file;
             } else {
-                $p3s = $p3sm = "이 이메일에 첨부됨";
-                $subj = "release";
+                $p3s = $p3sm = "이 이메일에 첨부된";
+                $subj = "이용 허락";
             }
-            $b1 = "I hereby affirm that I$p1s the creator and/or sole owner of the exclusive copyright of $p2s $p3s.";
-            $b1m = "I hereby affirm that I$p1s the creator and/or sole owner of the exclusive copyright of $p2s $p3sm.";
-            $b2 = "I agree to publish the above-mentioned work under the $license.";
-            $b3 = "I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.";
-            $b4 = "I am aware that this agreement is not limited to Wikipedia or related sites.";
-            if ($license != "Creative Commons CC0 1.0 Universal") {
-                $b5 = "<br />I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
-                $b5m = "%0AI am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
+            $b1 = "나는 이 메일을 통하여 $p1s 이 $p3s $p2s 의 독점 저작권 고유 소유자이자 제작자임을 선언합니다.";
+            $b1m = "나는 이 메일을 통하여 $p1s 이 $p3sm $p2s의 독점 저작권 고유 소유자이자 제작자임을 선언합니다.";
+            $b2 = "나는 이 저작물을 자유 라이선스인 $license 로 배포하는 것에 동의합니다.";
+            $b3 = "나는 이 저작물을 배포하는 데 동의함으로써 이 라이선스 및 관련 법률에 동의하는 한 누구나 저작물을 상업적 방법 등으로 사용하고, 어떤 목적으로든 재사용할 수 있도록 허락하는 것임을 인지하고 있습니다.";
+            $b4 = "나는 이용 허락이 위키미디어 프로젝트에 국한되지 않고, 전세계적으로 이용 허락을 하는 것임을 인지하고 있습니다.";
+            if ($license != "크리에이티브 커먼즈 CC0 1.0 보편적 (퍼블릭 도메인 기증)") {
+                $b5 = "<br />나는 이 저작물의 라이선스에 따른 저작자 표시와 저작권을 본인이 계속하여 보유하는 것을 인지하고 있으며, 해당 저작물의 이차적 저작물은 그 권리가 본인에게 귀속되지 않습니다.";
+                $b5m = "%0A나는 이 저작물의 라이선스에 따른 저작자 표시와 저작권을 저작권자가 계속하여 보유하는 것을 인지하고 있으며, 해당 저작물의 이차적 저작물은 그 권리가 저작권자에게 귀속되지 않습니다.";
             }
-            $b6 = "I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.";
-            $tracking = "[generated using relgen]";
+            $b6 = "나는 이 허락을 철회하지 않을 것이며, 저작물이 위키미디어 프로젝트에 영구히 보관되거나 보관되지 않게 되는 것을 승인합니다.";
+            $tracking = "[relgen에서 생성됨]";
             echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
           ?>
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release eMail</a>
+          <a role="button" href="mailto:permissions-ko@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">저작권 허가 이메일 생성</a>
         </div>
         <?php
             } else {
-                if ($name == "") echo "<p class='text-danger'>Error: No name specified!</p>";
-                if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>Error: No copyright holder and/or authority specified!</p>";
-                if (($s2 == "1") && ($filer == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
-                if ($license == "") echo "<p class='text-danger'>Error: No license specified!</p>";
+                if ($name == "") echo "<p class='text-danger'>에러: 이름이 지정되지 않았습니다!</p>";
+                if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>에러: 저작권자 및 대리 권한이 지정되지 않았습니다!</p>";
+                if (($s2 == "1") && ($filer == "")) echo "<p class='text-danger'>에러: 파일 이름이 지정되지 않았습니다!</p>";
+                if ($license == "") echo "<p class='text-danger'>에러: 라이선스가 지정되지 않았습니다!</p>";
             }
         ?>
         <br />
