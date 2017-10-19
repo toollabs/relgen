@@ -1,7 +1,7 @@
 <?php
     if (isset($_GET['source'])) {show_source(__FILE__); exit();}
     /**
-     * @author Stöger Florian D. M. (http://fdms.eu)
+     * @author Stöger Florian D. M. (http://fdms.eu) / Translated by Yongmin Hong <https://wp.revi.blog>
      * @license EUPL 1.1 (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf)
      * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu)
      */
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="//tools-static.wmflabs.org/static/jquery-ui/1.11.1/jquery-ui.css">
     <style>
       p {
-          background-color: white;
+ 	         background-color: white;
       }
       .hof {
           height: 100vh;
@@ -194,7 +194,7 @@
 
         <div id="s2" class="row hof"> <!-- step 2 -->
           <br />
-          5단계 중 2단계[ <a href="#s1" class="smsc">돌아가기</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+2" target="_blank">도움말</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">피드백</a> ]
+          5단계 중 2단계 [ <a href="#s1" class="smsc">돌아가기</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+2" target="_blank">도움말</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">피드백</a> ]
           <br /><br />
           <div class="col-md-7">
             <div class="button" data-toggle="buttons">
