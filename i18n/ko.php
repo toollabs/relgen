@@ -145,7 +145,7 @@
     ?>
 
     <div class="container">
-      <h1>위키미디어 OTRS 허가서 생성기 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="<a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a>에 의해 제작, 관리됨<br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />Translated by <a href='https://wp.revi.blog' target='_blank'>Yongmin Hong</a>" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>위키미디어 OTRS 허가서 생성기 <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="<a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a>에 의해 제작, 관리됨<br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br /><a href='https://wp.revi.blog' target='_blank'>홍 용민</a>이 번역함" style="color:#777;"><?=$relgen?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/i18n/ko.php">
 
