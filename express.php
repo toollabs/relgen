@@ -156,7 +156,7 @@
           <div class="col-md-7">
             <?php if ($filer != "") {
             ?>
-            <p>I agree to publish <?=$p2s?> <?=$filer?> under the following free license:</p>
+            <p>I agree to publish <?=$p2s?> <?php if ($s2 == "2") { ?><?=$filer?><?php } else { ?><a href="//commons.wikimedia.org/wiki/File:<?=$filer?>" target="_blank"><?=str_replace('_', ' ', $filer)?></a><?php } ?> under the following free license:</p>
             <div id="fg0" class="form-group"><div class="input-group">
               <input id="licensei" type="text" name="license" value="<?=$license?>" class="form-control" />
               <div class="input-group-btn">
