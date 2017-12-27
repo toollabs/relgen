@@ -122,7 +122,7 @@
         if ($license == "") $license = "Creative Commons Attribution-ShareAlike 4.0 International";
         if ($s1 == "") $s1 = "1";
         if ($s2 == "") $s2 = "1";
-        else if ($s2 == "2") $filer = "attached to this eMail";
+        else if ($s2 == "2") $filer = "attached to this email";
         if ($s3 == "") $s3 = "1";
         
         switch ($s3) {
