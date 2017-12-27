@@ -197,11 +197,11 @@
           <div class="col-md-7">
             <div class="button" data-toggle="buttons">
               <label class="btn btn-default btn-block" onclick="$('#iup').show();$('#iatt').show();"><input type="radio" id="s21" name="s2" value="1" />I or others have already uploaded the file to Wikimedia Commons</label>
-              <label class="btn btn-default btn-block" onclick="$('#iup').hide();$('#iatt').show();"><input type="radio" id="s22" name="s2" value="2" />I will attach the file to the eMail</label>
+              <label class="btn btn-default btn-block" onclick="$('#iup').hide();$('#iatt').show();"><input type="radio" id="s22" name="s2" value="2" />I will attach the file to the email</label>
             </div>
             <br />
             <p>Please use the <a href="//commons.wikimedia.org/wiki/Special:UploadWizard" target="_blank"><b>UploadWizard</b></a> to upload the file to Wikimedia Commons if you haven't done so already.</p>
-            <p>To prevent the file from getting deleted while your release eMail is awaiting processing by the Wikimedia OTRS team, you may place <b><samp>{{subst:OP}}</samp></b> on the file description page.</p>
+            <p>To prevent the file from getting deleted while your release email is awaiting processing by the Wikimedia OTRS team, you may place <b><samp>{{subst:OP}}</samp></b> on the file description page.</p>
             <br /><br />
           </div>
           <div class="col-md-4">
@@ -286,8 +286,8 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>If you have an eMail client installed, simply <b>click the button</b> to create the release eMail. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an eMail to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
-          <p>The eMail should come from an <b>eMail address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your eMail address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your eMail address should be an official eMail address of the organisation.</p>
+          <p>If you have an email client installed, simply <b>click the button</b> to create the release email. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an email to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
+          <p>The email should come from an <b>email address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your email address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your email address should be an official email address of the organisation.</p>
           <br />
           <?php
             if ($s1 == "1") {
@@ -314,7 +314,7 @@
                 $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
                 $subj = $file;
             } else {
-                $p3s = $p3sm = "attached to this eMail";
+                $p3s = $p3sm = "attached to this email";
                 $subj = "release";
             }
             $b1 = "I hereby affirm that I$p1s the creator and/or sole owner of the exclusive copyright of $p2s $p3s.";
@@ -333,7 +333,7 @@
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release eMail</a>
+          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release email</a>
         </div>
         <?php
             } else {
