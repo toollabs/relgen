@@ -105,7 +105,7 @@
   <body style="background: url('bg.png') no-repeat fixed right bottom; overflow:hidden;">
 
     <?php
-        $relgen = "0.9.9";
+        $relgen = "0.9.10";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -280,7 +280,7 @@
         <br />
         step 5 of 5 [ <a href="#s1" class="smsc">start over</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+5" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
         <br /><br />
-        <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 == "1") && ($filer == "")) && ($s3 != "") && ($license != "")) {
+        <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 != "2") && ($filer == "")) && ($s3 != "") && ($license != "")) {
           $stats = fopen("stats/" . date('Y') . ".csv", "a");
           fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
@@ -290,12 +290,33 @@
           <p>The email should come from an <b>email address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your email address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your email address should be an official email address of the organisation.</p>
           <br />
           <?php
-            if ($s1 == "1") {
-                $p1s = ", $name, am";
-            } else {
-                $p1s = " represent $rep,";
-                $p1s_ = "<br />$auth of $rep";
-                $p1s_m = "%0A$auth of $rep";
+            switch ($s1) {
+                case "1":
+                    $p1s = ", $name, am";
+                    break;
+                case "2":
+                    $p1s = " represent $rep,";
+                    $p1s_ = "<br />$auth of $rep";
+                    $p1s_m = "%0A$auth of $rep";
+                    break;
+            }
+            switch ($s2) {
+                case "1":
+                    $file = preg_replace("/(File:|(http|https):\/\/(commons|en).wiki(m|p)edia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
+                    $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
+                    $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
+                    $subj = "release of " . $file;
+                    break;
+                case "2":
+                    $p3s = $p3sm = "attached to this email";
+                    $subj = "release of content attached to this email";
+                    break;
+                case "3":
+                    $file = $filer;
+                    $p3s = "<a href='" . $file . "' target='_blank'>" . $file . "</a>";
+                    $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode($file);
+                    $subj = "release of " . $file;
+                    break;
             }
             switch ($s3) {
                 case "1":
@@ -307,15 +328,6 @@
                 case "3":
                     $p2s = "both the work depicted and the media";
                     break;
-            }
-            if ($s2 == "1") {
-                $file = preg_replace("/(File:|(http|https):\/\/(commons|en).wiki(m|p)edia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
-                $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
-                $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
-                $subj = $file;
-            } else {
-                $p3s = $p3sm = "attached to this email";
-                $subj = "release";
             }
             $b1 = "I hereby affirm that I$p1s the creator and/or sole owner of the exclusive copyright of $p2s $p3s.";
             $b1m = "I hereby affirm that I$p1s the creator and/or sole owner of the exclusive copyright of $p2s $p3sm.";
@@ -339,7 +351,7 @@
             } else {
                 if ($name == "") echo "<p class='text-danger'>Error: No name specified!</p>";
                 if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>Error: No copyright holder and/or authority specified!</p>";
-                if (($s2 == "1") && ($filer == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
+                if (($s2 != "2") && ($filer == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
                 if ($license == "") echo "<p class='text-danger'>Error: No license specified!</p>";
             }
         ?>
