@@ -314,7 +314,7 @@
                 case "3":
                     $file = $filer;
                     $p3s = "<a href='" . $file . "' target='_blank'>" . $file . "</a>";
-                    $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode($file);
+                    $p3sm = rawurlencode($file);
                     $subj = "release of " . $file;
                     break;
             }
