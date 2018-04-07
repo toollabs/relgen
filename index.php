@@ -285,7 +285,7 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>If you have an email client installed, simply <b>click the button</b> to create the release email. Alternatively, manually copy-and-paste the text in the green box below into an email to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
+          <p>If you have an email client installed, simply <b>click the button</b> to create the release email. Alternatively, copy-and-paste the text in the green box below into an email to <a href="mailto:permissions-commons@wikimedia.org" style="white-space:nowrap;">permissions-commons@wikimedia.org</a>.</p>
           <p>The email should come from an <b>email address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your email address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your email address should be an official email address of the organisation.</p>
           <br />
           <?php
