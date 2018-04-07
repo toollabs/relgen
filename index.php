@@ -12,7 +12,6 @@
     <title>Wikimedia OTRS release generator</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//tools-static.wmflabs.org/static/jquery-ui/1.11.1/jquery-ui.css">
     <style>
       p {
           background-color: white;
@@ -286,7 +285,7 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>If you have an email client installed, simply <b>click the button</b> to create the release email. If not (or nothing happens when you click the button), manually copy-and-paste the text in the green box below into an email to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
+          <p>If you have an email client installed, simply <b>click the button</b> to create the release email. Alternatively, manually copy-and-paste the text in the green box below into an email to <a href="mailto:permissions-commons@wikimedia.org">permissions-commons@wikimedia.org</a>.</p>
           <p>The email should come from an <b>email address that we can recognise as associated with the content being released</b>. For instance, if you are releasing images shown on a website, your email address should be associated with the website or listed on the contact page of the website; if you are releasing images on behalf of an organisation, your email address should be an official email address of the organisation.</p>
           <br />
           <?php
