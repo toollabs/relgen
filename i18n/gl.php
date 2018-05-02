@@ -288,7 +288,7 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>Se ten un cliente de correo electrónico instalado, simplemente <b>prema o botón</b> para crear o correo de liberación. De forma alternativa, copie e pegue o texto da caixa verde de abaixo nun correo electrónico para <a href="mailto:permissions-pt@wikimedia.org" style="white-space:nowrap;">permissions-commons@wikimedia.org</a>.</p>
+          <p>Se ten un cliente de correo electrónico instalado, simplemente <b>prema o botón</b> para crear o correo de liberación. De forma alternativa, copie e pegue o texto da caixa verde de abaixo nun correo electrónico para <a href="mailto:permissions-pt@wikimedia.org" style="white-space:nowrap;">permissions-pt@wikimedia.org</a>.</p>
           <p>O correo electrónico debe enviarse dende un <b>enderezo de correo electrónico que poidamos recoñecer como asociado co contido a ser liberado</b>. Por exemplo, se está liberando imaxes amosadas nun sitio web, o seu enderezo de correo electrónico debe estar asociado co sitio web ou listado na páxina de contacto do sitio web; se está liberando imaxes en nome dunha organización, o seu enderezo de correo electrónico ten que ser un enderezo de correo electrónico oficial da organización.</p>
           <br />
           <?php
@@ -347,7 +347,7 @@
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">crear correo de liberación</a>
+          <a role="button" href="mailto:permissions-pt@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">crear correo de liberación</a>
         </div>
         <?php
             } else {
