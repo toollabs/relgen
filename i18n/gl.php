@@ -152,7 +152,7 @@
         <div id="s0" class="row hof"> <!-- step 0 -->
           <br /><br />
           <div class="col-md-7">
-          <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">start</a>
+          <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">comezar</a>
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
           <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="result" value="1" />
