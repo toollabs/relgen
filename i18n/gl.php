@@ -145,7 +145,7 @@
     ?>
 
     <div class="container">
-      <h1>Xerador de documentos de liberación para Wikimedia OTRS<small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(gl translation by Elisardojm)" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>Xerador de documentos de liberación para Wikimedia OTRS <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(gl translation by Elisardojm)" style="color:#777;"><?=$relgen?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/i18n/gl.php">
 
@@ -248,7 +248,7 @@
           <div class="col-md-7">
             <p>Concordo con publicar o contido mencionado arriba baixo a seguinte licenza libre:</p>
             <div id="s4fg" class="form-group"><div class="input-group">
-              <input id="licensei" type="text" name="license" value="Creative Commons Attribution-ShareAlike 4.0 International" class="form-control" />
+              <input id="licensei" type="text" name="license" value="Creative Commons Atribución-Compartir igual 4.0 Internacional (CC BY-SA 4.0)" class="form-control" />
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -288,7 +288,7 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>Se ten un cliente de correo electrónico instalado, simplemente <b>prema o botón</b> para crear o correo de liberación. De forma alternativa, copie e pegue o texto da caixa verde de abaixo nun correo electrónico para <a href="mailto:permissions-commons@wikimedia.org" style="white-space:nowrap;">permissions-commons@wikimedia.org</a>.</p>
+          <p>Se ten un cliente de correo electrónico instalado, simplemente <b>prema o botón</b> para crear o correo de liberación. De forma alternativa, copie e pegue o texto da caixa verde de abaixo nun correo electrónico para <a href="mailto:permissions-pt@wikimedia.org" style="white-space:nowrap;">permissions-commons@wikimedia.org</a>.</p>
           <p>O correo electrónico debe enviarse dende un <b>enderezo de correo electrónico que poidamos recoñecer como asociado co contido a ser liberado</b>. Por exemplo, se está liberando imaxes amosadas nun sitio web, o seu enderezo de correo electrónico debe estar asociado co sitio web ou listado na páxina de contacto do sitio web; se está liberando imaxes en nome dunha organización, o seu enderezo de correo electrónico ten que ser un enderezo de correo electrónico oficial da organización.</p>
           <br />
           <?php
