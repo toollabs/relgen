@@ -1,9 +1,9 @@
 <?php
     if (isset($_GET['source'])) {show_source(__FILE__); exit();}
     /**
-     * @author Stöger Florian D. M. (http://fdms.eu)
+     * @author Stöger Florian D. M. (http://fdms.eu; gl translation by Elisardojm)
      * @license EUPL 1.1 (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf)
-     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu)
+     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu; gl translation by Elisardojm)
      * @translation to Galician by Elisardojm
      */
 ?>
@@ -106,6 +106,7 @@
 
     <?php
         $relgen = "0.9.10";
+        $lang = "gl";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -144,15 +145,16 @@
     ?>
 
     <div class="container">
-      <h1>Xerador de documentos de liberación para Wikimedia OTRS<small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>Xerador de documentos de liberación para Wikimedia OTRS<small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(gl translation by Elisardojm)" style="color:#777;"><?=$relgen?></a></small></h1>
   
-      <form method="post" action="//tools.wmflabs.org/relgen/index.php">
+      <form method="post" action="//tools.wmflabs.org/relgen/i18n/gl.php">
 
         <div id="s0" class="row hof"> <!-- step 0 -->
           <br /><br />
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">start</a>
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
+          <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="result" value="1" />
           </div><br />
         </div>
@@ -250,9 +252,9 @@
               <div class="input-group-btn">
                 <a role="button" data-toggle="dropdown" class="btn btn-default"><span class="caret" /></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a onclick="$('#licensei').val('Creative Commons Attribution-ShareAlike 4.0 International'); $('#iawattr').show();">Creative Commons Atribución-Compartir igual 4.0 Internacional</a></li>
-                  <li><a onclick="$('#licensei').val('Creative Commons Attribution 4.0 International'); $('#iawattr').show();">Creative Commons Atribución 4.0 Internacional</a></li>
-                  <li><a onclick="$('#licensei').val('Creative Commons CC0 1.0 Universal'); $('#iawattr').hide();">Creative Commons CC0 1.0 Universal (dominio público)</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons Atribución-Compartir igual 4.0 Internacional (CC BY-SA 4.0)'); $('#iawattr').show();">Creative Commons Atribución-Compartir igual 4.0 Internacional (CC BY-SA 4.0)</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons Atribución 4.0 Internacional (CC BY 4.0)'); $('#iawattr').show();">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a></li>
+                  <li><a onclick="$('#licensei').val('Creative Commons CC0 1.0 Universal (dominio público)'); $('#iawattr').hide();">Creative Commons CC0 1.0 Universal (dominio público)</a></li>
                 </ul>
                 <a role="button" href="//commons.wikimedia.org/wiki/Commons:First_steps/License_selection" target="_blank" class="btn btn-default">
                   <span class="glyphicon glyphicon-question-sign" />
@@ -281,7 +283,7 @@
         paso 5 de 5 [ <a href="#s1" class="smsc">volver comezar</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+5" target="_blank">axuda</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">comentarios</a> ]
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 != "2") && ($filer == "")) && ($s3 != "") && ($license != "")) {
-          $stats = fopen("stats/" . date('Y') . ".csv", "a");
+          $stats = fopen("../stats/" . date('Y') . ".csv", "a");
           fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
         ?>
@@ -302,7 +304,7 @@
             }
             switch ($s2) {
                 case "1":
-                    $file = preg_replace("/(File:|(http|https):\/\/(commons|en).wiki(m|p)edia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
+                    $file = preg_replace("/(File:|(http|https):\/\/(commons|en|gl).wiki(m|p)edia.org\/(wiki\/|w\/index\.php\?title=)File:)/", "", $filer);
                     $p3s = "<a href='//commons.wikimedia.org/wiki/File:" . rawurlencode(str_replace(" " , "_", $file)) . "' target='_blank'>https://commons.wikimedia.org/wiki/File:" . str_replace(" " , "_", $file) . "</a>";
                     $p3sm = "https:%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile:" . rawurlencode(str_replace(" " , "_", $file));
                     $subj = "liberación de " . $file;
@@ -334,7 +336,7 @@
             $b2 = "Estou de acordo en publicar o traballo arriba mencionado baixo a licenza $license.";
             $b3 = "Recoñezo que facendo isto concedo a calquera o dereito de utilizar o traballo, incluso nun produto comercial ou doutro xeito, e a modificalo segundo as súas necesidades, a condición de que manteñan as condicións da licenza e calquera outras leis aplicábeis.";
             $b4 = "Son consciente que este acordo non está limitado a Wikipedia ou os sitios relacionados.";
-            if ($license != "Creative Commons CC0 1.0 Universal") {
+            if ($license != "Creative Commons CC0 1.0 Universal (dominio público)") {
                 $b5 = "<br />Son consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non será atribuído ó titular dos dereitos de autor.";
                 $b5m = "%0ASon consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non será atribuído ó titular dos dereitos de autor.";
             }
