@@ -161,7 +161,7 @@
 
         <div id="s1" class="row hof"> <!-- step 1 -->
           <br />
-          paso 1 de 5 [ <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+1" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
+          paso 1 de 5 [ <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+1" target="_blank">axuda</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">comentarios</a> ]
           <br /><br />
           <div class="col-md-7">
             <div class="button" data-toggle="buttons">
@@ -202,7 +202,7 @@
               <label class="btn btn-default btn-block" onclick="$('#iup').hide();$('#iatt').show();"><input type="radio" id="s22" name="s2" value="2" />Vou a anexar o ficheiro ó correo electrónico</label>
             </div>
             <br />
-            <p>Por favor, use o <a href="//commons.wikimedia.org/wiki/Special:UploadWizard" target="_blank"><b>Asistente de subas</b></a> para subir o ficheiro a Wikimedia Commons se non o fixo aínda.</p>
+            <p>Por favor, use o <a href="//commons.wikimedia.org/wiki/Special:UploadWizard" target="_blank"><b>Asistente de cargas</b></a> para subir o ficheiro a Wikimedia Commons se non o fixo aínda.</p>
             <p>Para evitar que o ficheiro sexa borrado mentres o seu correo de liberación espera a ser procesado polo equipo de OTRS de Wikimedia, vostede pode engadir <b><samp>{{subst:OP}}</samp></b> na páxina de descrición do ficheiro.</p>
             <br /><br />
           </div>
@@ -262,7 +262,7 @@
               </div>
             </div></div>
             <p>Recoñezo que facendo isto concedo a calquera o dereito a utilizar o traballo, mesmo nun produto comercial ou doutro xeito, e a modificalo segundo as súas necesidades, a condición de que manteñan os termos da licenza e calquera outras leis aplicábeis.</p>
-            <p>Son consciente que este acordo non está limitado a Wikipedia ou os sitios relacionados.</p>
+            <p>Son consciente que este acordo non está limitado a Wikipedia ou ós seus sitios relacionados.</p>
             <p id="iawattr">Son consciente de que o titular dos dereitos de autor sempre retén a propiedade dos dereitos así como o dereito de ter a atribución de acordo coa licenza escollida. As modificacións que outros fagan ao traballo non será solicitado que foron feitas polo titular dos dereitos de autor.</p>
             <p>Recoñezo que non podo retirar este acordo, e que o contido pode, ou non, ser mantido permanentemente nun proxecto Wikimedia.</p>
             <br />
@@ -335,7 +335,7 @@
             $b1m = "Por este medio afirmo que eu$p1s o creador e/ou único dono do copyright exclusivo de $p2s $p3sm.";
             $b2 = "Estou de acordo en publicar o traballo arriba mencionado baixo a licenza $license.";
             $b3 = "Recoñezo que facendo isto concedo a calquera o dereito de utilizar o traballo, incluso nun produto comercial ou doutro xeito, e a modificalo segundo as súas necesidades, a condición de que manteñan as condicións da licenza e calquera outras leis aplicábeis.";
-            $b4 = "Son consciente que este acordo non está limitado a Wikipedia ou os seus sitios relacionados.";
+            $b4 = "Son consciente que este acordo non está limitado a Wikipedia ou ós seus sitios relacionados.";
             if ($license != "Creative Commons CC0 1.0 Universal (dominio público)") {
                 $b5 = "<br />Son consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non serán atribuídas ó titular dos dereitos de autor.";
                 $b5m = "%0ASon consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non serán atribuídas ó titular dos dereitos de autor.";
