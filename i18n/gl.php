@@ -161,7 +161,7 @@
 
         <div id="s1" class="row hof"> <!-- step 1 -->
           <br />
-          step 1 of 5 [ <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+1" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
+          paso 1 de 5 [ <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+1" target="_blank">help</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">feedback</a> ]
           <br /><br />
           <div class="col-md-7">
             <div class="button" data-toggle="buttons">
@@ -175,7 +175,7 @@
           </div>
           <div class="col-md-4">
             <div style="display:none;" id="iam">
-              my name<br /><div id="s1fg1" class="form-group"><input id="namei" type="text" name="name" value="<?php echo $name;?>" placeholder="Xoán Ninguén (requirido)" class="form-control" /></div>
+              o meu nome<br /><div id="s1fg1" class="form-group"><input id="namei" type="text" name="name" value="<?php echo $name;?>" placeholder="Xoán Ninguén (requirido)" class="form-control" /></div>
               <div style="display:none;" id="irep">
                 <br />
                 titular dos dereitos de autor<br /><div id="s1fg2" class="form-group"><input id="repi" type="text" name="rep" value="<?php echo $rep;?>" placeholder="Empresa S.A. / Xoana Ninguén (requirido)" class="form-control" /></div>
@@ -186,7 +186,7 @@
               <a role="button" class="btn btn-primary btn-block nt" onclick="s1v()">continuar co seguinte paso</a>
             </div>
             <div style="display:none;" id="idk">
-              <p class="text-danger">Wikimedia OTRS non pode acceptar unha liberación de vostede – por favor, no canto <a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">contacte co titular dos dereitos de autor</a>.</p>
+              <p class="text-danger">Wikimedia OTRS non pode aceptar unha liberación de vostede – por favor, no canto <a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">contacte co titular dos dereitos de autor</a>.</p>
             </div>
           </div>
           <br />
@@ -229,8 +229,8 @@
               <label class="btn btn-default btn-block" onclick="$('#i3').show();"><input type="radio" id="s33" name="s3" value="3" />Quero liberar tanto o traballo representado no ficheiro multimedia coma o ficheiro multimedia</label>
             </div>
             <br />
-            <p>Se o traballo multimedia representa ou inclúe o traballo artístico de outra persoa dunha forma non trivial, é un <a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>traballo derivado</b></a> e polo tanto é normalmente é precisa unha liberación separada do titular dos dereitos de autor da obra de arte representada.</p>
-            <p>Nalgúns países, graza á excepción da <a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>liberdade de panorama</b></a>, obras arquitectónicas e outras obras de arte visibles de forma permanente no espazo público están exentas deste requisito. Nos Estados Unidos, só está exenta a arquitectura.</p>
+            <p>Se o traballo multimedia representa ou inclúe o traballo artístico doutra persoa dunha forma non trivial, é un <a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>traballo derivado</b></a> e polo tanto normalmente é precisa unha liberación separada do titular dos dereitos de autor da obra de arte representada.</p>
+            <p>Nalgúns países, grazas á excepción da <a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>liberdade de panorama</b></a>, obras arquitectónicas e outras obras de arte visibles de forma permanente no espazo público están exentas deste requisito. Nos Estados Unidos, só está exenta a arquitectura.</p>
             <br /><br />
           </div>
           <div class="col-md-4">
@@ -263,7 +263,7 @@
             </div></div>
             <p>Recoñezo que facendo isto concedo a calquera o dereito a utilizar o traballo, mesmo nun produto comercial ou doutro xeito, e a modificalo segundo as súas necesidades, a condición de que manteñan os termos da licenza e calquera outras leis aplicábeis.</p>
             <p>Son consciente que este acordo non está limitado a Wikipedia ou os sitios relacionados.</p>
-            <p id="iawattr">Son consciente de que o titular dos dereitos de autor sempre retén a propiedade dos dereitos así como o dereito de ter a atrubución de acordo coa licenza escollida. As modificacións que outros fagan ao traballo non será solicitado que foi feito polo titular dos dereitos de autor.</p>
+            <p id="iawattr">Son consciente de que o titular dos dereitos de autor sempre retén a propiedade dos dereitos así como o dereito de ter a atribución de acordo coa licenza escollida. As modificacións que outros fagan ao traballo non será solicitado que foron feitas polo titular dos dereitos de autor.</p>
             <p>Recoñezo que non podo retirar este acordo, e que o contido pode, ou non, ser mantido permanentemente nun proxecto Wikimedia.</p>
             <br />
             <button type="button" class="btn btn-default btn-block" data-toggle="button" onclick="$('#iag').toggle();">Concordo</button>
@@ -335,10 +335,10 @@
             $b1m = "Por este medio afirmo que eu$p1s o creador e/ou único dono do copyright exclusivo de $p2s $p3sm.";
             $b2 = "Estou de acordo en publicar o traballo arriba mencionado baixo a licenza $license.";
             $b3 = "Recoñezo que facendo isto concedo a calquera o dereito de utilizar o traballo, incluso nun produto comercial ou doutro xeito, e a modificalo segundo as súas necesidades, a condición de que manteñan as condicións da licenza e calquera outras leis aplicábeis.";
-            $b4 = "Son consciente que este acordo non está limitado a Wikipedia ou os sitios relacionados.";
+            $b4 = "Son consciente que este acordo non está limitado a Wikipedia ou os seus sitios relacionados.";
             if ($license != "Creative Commons CC0 1.0 Universal (dominio público)") {
-                $b5 = "<br />Son consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non será atribuído ó titular dos dereitos de autor.";
-                $b5m = "%0ASon consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non será atribuído ó titular dos dereitos de autor.";
+                $b5 = "<br />Son consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non serán atribuídas ó titular dos dereitos de autor.";
+                $b5m = "%0ASon consciente de que o titular do copyright sempre retén a propiedade dos dereitos de autor así como o dereito a ser atribuído de acordo coa licenza escollida. As modificacións que outros fagan ó traballo non serán atribuídas ó titular dos dereitos de autor.";
             }
             $b6 = "Recoñezo que non podo retirar este acordo, e que o contido pode, ou non, ser mantido permanentemente nun proxecto Wikimedia.";
             $tracking = "[xerado usando relgen]";
