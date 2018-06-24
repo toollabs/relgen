@@ -1,9 +1,9 @@
 <?php
     if (isset($_GET['source'])) {show_source(__FILE__); exit();}
     /**
-     * @author Stöger Florian D. M. (http://fdms.eu)
+     * @author Stöger Florian D. M. (http://fdms.eu; ru translation by Anastasia Lvova)
      * @license EUPL 1.1 (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf)
-     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu)
+     * @copyright © (//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf) Stöger Florian D. M. (http://fdms.eu; ru translation by Anastasia Lvova)
      */
 ?>
 <!DOCTYPE HTML>
@@ -52,7 +52,7 @@
       
       function s1v() {
           s1vi = 0;
-          if (!$("#namei").val().match(/\S/)) {
+          if (!$("#namei").val().trim()) {
               if (!$("#s1fg1").hasClass("has-error")) {
                   $("#s1fg1").addClass("has-error");
               }
@@ -63,7 +63,7 @@
               }
           }
           if ($("#irep").css("display") != "none") {
-              if (!$("#repi").val().match(/\S/)) {
+              if (!$("#repi").val().trim()) {
                   if (!$("#s1fg2").hasClass("has-error")) {
                       $("#s1fg2").addClass("has-error");
                   }
@@ -73,7 +73,7 @@
                       $("#s1fg2").removeClass("has-error");
                   }
               }
-              if (!$("#authi").val().match(/\w/)) {
+              if (!$("#authi").val().trim()) {
                   if (!$("#s1fg3").hasClass("has-error")) {
                       $("#s1fg3").addClass("has-error");
                   }
@@ -91,7 +91,7 @@
           }
       }
       function s4v() {
-          if (!$("#licensei").val().match(/\w/)) {
+          if (!$("#licensei").val().trim()) {
               if (!$("#s4fg").hasClass("has-error")) {
                   $("#s4fg").addClass("has-error");
               }
@@ -105,6 +105,7 @@
 
     <?php
         $relgen = "0.9.10";
+        $lang = "ru";
         date_default_timezone_set("UTC");
         $starttime = date("H:i:s");
         $trn = $name = $rep = $auth = $filer = $license = $s1 = $s2 = $s3 = "";
@@ -143,15 +144,16 @@
     ?>
 
     <div class="container">
-      <h1>Генератор разрешений Викимедиа OTRS<small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>Генератор разрешений Викимедиа OTRS<small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a><br />(ru translation by Anastasia Lvova)" style="color:#777;"><?=$relgen?></a></small></h1>
   
-      <form method="post" action="//tools.wmflabs.org/relgen/index.php">
+      <form method="post" action="//tools.wmflabs.org/relgen/i18n/ru.php">
 
         <div id="s0" class="row hof"> <!-- step 0 -->
           <br /><br />
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">старт</a>
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
+          <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="result" value="1" />
           </div><br />
         </div>
@@ -281,7 +283,7 @@
         шаг 5 из 5 [ <a href="#s1" class="smsc">в начало</a> | <a href="//commons.wikimedia.org/wiki/Commons:Help_desk?action=edit&section=new&preloadtitle=help+with+Wikimedia+OTRS+release+generator+step+5" target="_blank">помощь</a> | <a href="//commons.wikimedia.org/wiki/User_talk:FDMS4?action=edit&section=new&preloadtitle=Wikimedia+OTRS+release+generator+feedback" target="_blank">обратная связь</a> ]
         <br /><br />
         <?php if (($s1 != "") && ($name != "") && !(($s1 == "2") && (($rep == "") || ($auth == ""))) && ($s2 != "") && !(($s2 != "2") && ($filer == "")) && ($s3 != "") && ($license != "")) {
-          $stats = fopen("stats/" . date('Y') . ".csv", "a");
+          $stats = fopen("../stats/" . date('Y') . ".csv", "a");
           fputcsv($stats, array (date("m-d"), $starttime, date("H:i:s"), $trn), ";");
           fclose($stats);
         ?>
