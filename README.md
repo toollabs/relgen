@@ -1,3 +1,5 @@
+> This version of relgen hosted on Tool Forge has largely been **superseded by a [JS-based version available directly on Wikimedia Commons](https://commons.wikimedia.org/wiki/Commons:Wikimedia_OTRS_release_generator)**. For more information, please refer to the [Village pump announcement](https://commons.wikimedia.org/wiki/Commons:Village_pump/Archive/2019/04#New_Wikimedia_OTRS_release_generator_now_live_on_Commons) or the relgen.js [source code](https://commons.wikimedia.org/wiki/MediaWiki:Relgen.js). The relgen express functionality documented below is not available in relgen.js, and all versions of relgen on Tool Forge will remain available for the foreseeable future.
+
 ## [relgen express](//tools.wmflabs.org/relgen/express.php) documentation
 
 **parameters**
