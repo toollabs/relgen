@@ -9,7 +9,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Wikimedia OTRS release generator</title>
+    <title>Генератор дозволів Вікімедіа OTRS</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <style>
@@ -143,7 +143,7 @@
     ?>
 
     <div class="container">
-      <h1>Wikimedia OTRS release generator <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
+      <h1>Генератор дозволів Вікімедіа OTRS <small><a id="meta" tabindex="0" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="created and maintained by <a href='//meta.wikimedia.org/wiki/User:FDMS4' target='_blank'>FDMS</a><br />© (<a href='//joinup.ec.europa.eu/sites/default/files/eupl1.1.-licence-en_0.pdf' target='_blank'>EUPL 1.1</a>) <a href='http://fdms.eu' target='_blank'>Stöger Florian D. M.</a>" style="color:#777;"><?=$relgen?></a></small></h1>
   
       <form method="post" action="//tools.wmflabs.org/relgen/index.php">
 
@@ -183,7 +183,7 @@
               <a role="button" class="btn btn-primary btn-block nt" onclick="s1v()">перейти до наступного кроку</a>
             </div>
             <div style="display:none;" id="idk">
-              <p class="text-danger">Вікімедіа OTRS не може прийняти дозвіл від вас — будь ласка, натомість <a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">зв'яжіться з власником авторських прав</a>.</p>
+              <p class="text-danger">Вікімедіа OTRS не може прийняти дозвіл від вас — натомість, будь ласка, <a href="//commons.wikimedia.org/wiki/Commons:OTRS#notch">зв'яжіться з власником авторських прав</a>.</p>
             </div>
           </div>
           <br />
@@ -258,7 +258,7 @@
                 </a>
               </div>
             </div></div>
-            <p>Я розумію, що тим самим надаю право будь-якій особі поширювати, змінювати й використовувати твір у будь-яких цілях, що не порушують законодавства (у тому числі пов'язаними з отриманням комерційної вигоди) за умови дотримання зазначеної ліцензії.</p>
+            <p>Я розумію, що тим самим надаю право будь-якій особі поширювати, змінювати й використовувати твір у будь-яких цілях, що не порушують законодавства (у тому числі пов'язаними з отриманням комерційної вигоди), за умови дотримання зазначеної ліцензії.</p>
             <p>Я сповіщений/а, що цей дозвіл не обмежується Вікіпедією чи пов'язаними з нею сайтами.</p>
             <p id="iawattr">Я сповіщений/а, що власник авторських прав завжди зберігає виключні авторські права на твір поза умовами зазначеної ліцензії, у тому числі право на згадування як автора відповідно до обраної ліцензії. Модифікації твору, які зроблять інші люди, не будуть приписані власнику авторських прав.</p>
             <p>Я розумію, що не можу відкликати цей дозвіл, і що моя робота може розміщуватися у проектах Фонду Вікімедіа протягом необмеженого часу або бути вилученою звідти.</p>
@@ -285,16 +285,16 @@
           fclose($stats);
         ?>
         <div class="col-md-7">
-          <p>Якщо у вас встановлений клієнт електронної пошти, просто <b>натисніть на кнопку</b>, щоб створити електронний лист з дозволом. Якщо ні, то скопіюйте і вставте текст у зеленому прямокутнику унизу в електронний лист і надішліть його на <a href="mailto:permissions-commons@wikimedia.org" style="white-space:nowrap;">permissions-commons@wikimedia.org</a>.</p>
+          <p>Якщо у вас встановлений клієнт електронної пошти, просто <b>натисніть на кнопку</b>, щоб створити електронний лист з дозволом. Якщо ні, то скопіюйте і вставте текст у зеленому прямокутнику унизу в електронний лист і надішліть його на <a href="mailto:permissions-uk@wikimedia.org" style="white-space:nowrap;">permissions-uk@wikimedia.org</a>.</p>
           <p>Цей лист має надійти з <b>електронної скриньки, яку можна розпізнати, як пов'язану з матеріалами, на які надсилається дозвіл</b>. Наприклад, якщо ви надаєте дозвіл на зображення, опубліковані на вебсайті, ваша електронна скринька має бути пов'язаною з цим вебсайтом або вказана у контактній інформації на вебсайті; якщо ви даєте дозвіл на зображення від імені організації, ваша електронна скринька має бути офіційною електронною скринькою організації.</p>
           <br />
           <?php
             switch ($s1) {
                 case "1":
-                    $p1s = ", $name, —";
+                    $p1s = ", $name, ";
                     break;
                 case "2":
-                    $p1s = " представник $rep,";
+                    $p1s = " представник автора, $rep,";
                     $p1s_ = "<br />$auth $rep";
                     $p1s_m = "%0A$auth $rep";
                     break;
@@ -330,28 +330,28 @@
             }
             $b1 = "Цим заявляю, що я$p1s автор і/або єдиний власник виключних авторських прав на $p2s $p3s.";
             $b1m = "Цим заявляю, що я$p1s автор і/або єдиний власник виключних авторських прав на $p2s $p3sm.";
-            $b2 = "I agree to publish the above-mentioned work under the $license.";
-            $b3 = "I acknowledge that by doing so I grant anyone the right to use the work, even in a commercial product or otherwise, and to modify it according to their needs, provided that they abide by the terms of the license and any other applicable laws.";
-            $b4 = "I am aware that this agreement is not limited to Wikipedia or related sites.";
+            $b2 = "Я погоджуюся опублікувати вищезгаданий твін на умовах $license.";
+            $b3 = "Я розумію, що тим самим надаю право будь-якій особі поширювати, змінювати й використовувати твір у будь-яких цілях, що не порушують законодавства (у тому числі пов'язаними з отриманням комерційної вигоди), за умови дотримання зазначеної ліцензії.";
+            $b4 = "Я сповіщений/а, що цей дозвіл не обмежується Вікіпедією чи пов'язаними з нею сайтами.";
             if ($license != "Creative Commons CC0 1.0 Universal") {
-                $b5 = "<br />I am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
-                $b5m = "%0AI am aware that the copyright holder always retains ownership of the copyright as well as the right to be attributed in accordance with the license chosen. Modifications others make to the work will not be claimed to have been made by the copyright holder.";
+                $b5 = "<br />Я сповіщений/а, що власник авторських прав завжди зберігає виключні авторські права на твір поза умовами зазначеної ліцензії, у тому числі право на згадування як автора відповідно до обраної ліцензії. Модифікації твору, які зроблять інші люди, не будуть приписані власнику авторських прав.";
+                $b5m = "%0AЯ сповіщений/а, що власник авторських прав завжди зберігає виключні авторські права на твір поза умовами зазначеної ліцензії, у тому числі право на згадування як автора відповідно до обраної ліцензії. Модифікації твору, які зроблять інші люди, не будуть приписані власнику авторських прав.";
             }
-            $b6 = "I acknowledge that I cannot withdraw this agreement, and that the content may or may not be kept permanently on a Wikimedia project.";
-            $tracking = "[generated using relgen]";
+            $b6 = "Я розумію, що не можу відкликати цей дозвіл, і що моя робота може розміщуватися у проектах Фонду Вікімедіа протягом необмеженого часу або бути вилученою звідти.";
+            $tracking = "[згенеровано у relgen]";
             echo "<div class='bg-success' style='padding:8px;'>$b1<br />$b2<br />$b3<br />$b4$b5<br />$b6<br /><br />$name$p1s_<br />" . date("Y-m-d") . "<br /><br />$tracking</div>";
           ?>
           <br /><br />
         </div>
         <div class="col-md-4">
-          <a role="button" href="mailto:permissions-commons@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">create release email</a>
+          <a role="button" href="mailto:permissions-uk@wikimedia.org?subject=<?=$subj?>&amp;body=<?=$b1m?>%0A<?=$b2?>%0A<?=$b3?>%0A<?=$b4?><?=$b5m?>%0A<?=$b6?>%0A%0A<?=$name?><?=$p1s_m?>%0A<?=date('Y-m-d')?>%0A%0A<?=$tracking?>" class="btn btn-default btn-block" style="width:100%;">створити електронний лист з дозволом</a>
         </div>
         <?php
             } else {
-                if ($name == "") echo "<p class='text-danger'>Error: No name specified!</p>";
-                if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>Error: No copyright holder and/or authority specified!</p>";
-                if (($s2 != "2") && ($filer == "")) echo "<p class='text-danger'>Error: No file name specified!</p>";
-                if ($license == "") echo "<p class='text-danger'>Error: No license specified!</p>";
+                if ($name == "") echo "<p class='text-danger'>помилка: Не вказано імені!</p>";
+                if (($s1 == "2") && (($rep == "") || ($auth == ""))) echo "<p class='text-danger'>Помилка: Не вказано власника авторських прав і/або позиції!</p>";
+                if (($s2 != "2") && ($filer == "")) echo "<p class='text-danger'>Помилка: Не вказано назву файлу!</p>";
+                if ($license == "") echo "<p class='text-danger'>Помилка: Не вказано ліцензію!</p>";
             }
         ?>
         <br />
