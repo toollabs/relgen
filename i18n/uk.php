@@ -153,6 +153,7 @@
           <div class="col-md-7">
           <a role="button" href="#s1" class="btn btn-primary btn-lg btn-block smsc nt">почати</a>
           <input type="hidden" name="starttime" value="<?=$starttime?>" />
+          <input type="hidden" name="trn" value="<?=$lang?>" />
           <input type="hidden" name="result" value="1" />
           </div><br />
         </div>
