@@ -227,7 +227,7 @@
             </div>
             <br />
             <p>If the media work depicts or otherwise includes someone else's artwork in a non-trivial manner, it is a <a href="//commons.wikimedia.org/wiki/Commons:Derivative_works" target="_blank"><b>derivative work</b></a> and therefore a separate release from the copyright holder of the depicted artwork is generally required.</p>
-            <p>In some countries, thanks to the <a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>freedom of panaroma</b></a> exception, architecture and other artwork on permanent public display are exempted from this requirement. In the United States, only architecture is exempted.</p>
+            <p>In some countries, thanks to the <a href="//commons.wikimedia.org/wiki/Commons:Freedom_of_panorama" target="_blank"><b>freedom of panorama</b></a> exception, architecture and other artwork on permanent public display are exempted from this requirement. In the United States, only architecture is exempted.</p>
             <br /><br />
           </div>
           <div class="col-md-4">
